@@ -1,4 +1,4 @@
-# Personal Finance Tracker
+# TallyUp - Personal Finance Tracker
 
 A web application built with Next.js, Prisma, and NextAuth to help you track your personal finances. This app allows you to securely create an account, track your income and expenses, and view financial summaries over time.
 
