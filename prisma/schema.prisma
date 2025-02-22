@@ -12,7 +12,7 @@ datasource db {
 
 model Transaction {
   id        String   @id @default(cuid())
-  comment   String
+  comment   String?
   amount    Int
   type      Int
   category  Int
@@ -24,10 +24,10 @@ model Transaction {
 
 model User {
   id            String          @id @default(cuid())
-  name          String
+  name          String?
   email         String          @unique
   emailVerified Boolean?
-  image         String
+  image         String?
   password      String?
   role          Int             @default(0)
   transactions  Transaction[]

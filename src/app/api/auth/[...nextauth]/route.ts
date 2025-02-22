@@ -4,6 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import * as argon2 from "argon2";
+import { Prisma } from "@prisma/client";
 import { prisma } from '@/app/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 
@@ -19,7 +20,7 @@ export const authOptions = {
                 const email = credentials?.email;
                 const password = credentials?.password;
                 if (!email || !password) {
-                    return { message: "Invalid Email/Password" };
+                    return null;
                 }
                 try {
                     const user = await prisma.user.findUnique({
@@ -33,13 +34,20 @@ export const authOptions = {
                         },
                     });
 
-                    if (user && await argon2.verify(user.password, password)) {
+                    if (user && user.password && await argon2.verify(user.password, password)) {
                         return user;
                     } else {
-                        return { message: "Wrong Credentials" };
+                        return null;
                     }
                 } catch (e) {
-                    throw new Error(e);
+                    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+                        // Handle known Prisma errors
+                        console.error("Prisma error:", e.message);
+                    } else {
+                        // Handle other errors
+                        console.error("Unexpected error:", e);
+                    }
+                    return null;
                 }
             },
         }),
@@ -54,7 +62,7 @@ export const authOptions = {
     ],
     adapter: PrismaAdapter(prisma),
     callbacks: {
-        async signIn({ user, account, profile }) {
+        async signIn({ account, profile }: { account: any, profile?: any }) {
             if (account.provider === "google") {
                 return profile.email_verified;
             }

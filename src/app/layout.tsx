@@ -33,7 +33,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider session={session}>
-          <main className="mx-auto max-w-5xl text-2xl flex gap-2">
+          <main>
             {children}
           </main>
         </SessionProvider>
