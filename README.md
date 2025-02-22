@@ -2,7 +2,7 @@
 
 A web application built with Next.js, Prisma, and NextAuth to help you track your personal finances. This app allows you to securely create an account, track your income and expenses, and view financial summaries over time.
 
-## Features
+## Features :zap:
 
 - User authentication with NextAuth
 - Financial data tracking (income, expenses)
@@ -10,14 +10,14 @@ A web application built with Next.js, Prisma, and NextAuth to help you track you
 - Data persistence with Prisma (SQLite/PostgreSQL)
 - User-specific data for privacy and security
 
-## Tech Stack
+## Tech Stack :books:
 
 - **Next.js**: React framework for building fast, server-rendered React apps.
 - **NextAuth.js**: Authentication for Next.js applications.
 - **Prisma**: ORM for database management and migrations.
 - **SQLite/PostgreSQL**: Relational database to store user and financial data.
 
-## Installation
+## Installation :electric_plug:
 
 Follow these steps to set up the project on your local machine:
 
@@ -28,7 +28,7 @@ git clone https://github.com/zsliwoski/personal-finance-tracker.git
 cd personal-finance-tracker
 ```
 
-### 2. Install dependencies
+### 2. Install dependencies 
 
 ```bash
 npm install
@@ -66,7 +66,7 @@ npm run dev
 
 The app should now be running on [http://localhost:3000](http://localhost:3000).
 
-## Usage
+## Usage :wrench:
 
 1. **Sign Up/Sign In**: Use NextAuth to create an account or sign in using your email or OAuth providers like Google.
 2. **Add Transactions**: Track your income and expenses by adding transactions with categories, amounts, and dates.
@@ -81,7 +81,7 @@ The app uses Prisma to handle the database. Below is an outline of the key table
 - **Transaction**: Stores transactions, including income/expense amounts, categories, and date.
 - **Category**: Defines the different categories for transactions (e.g., Food, Rent, Salary).
 
-### Upcoming Features
+### Upcoming Features :hourglass_flowing_sand:
 - **API routes**: Expose API routes for interacting with the finance data.
 - **Detailed financial reports**: Generate reports based on user-selected time frames (e.g., weekly, monthly, yearly).
 - **Expense categorization**: Introduce predefined categories for expenses, such as groceries, utilities, entertainment, etc.
@@ -91,7 +91,7 @@ The app uses Prisma to handle the database. Below is an outline of the key table
 - **Multiple accounts**: Add the ability to manage and switch between multiple accounts (e.g., checking, savings, credit).
 - **Mobile App**: Develop a companion mobile app for iOS and Android to manage finances on the go.
 
-### Future Ideas
+### Future Ideas :bulb:
 - **Investment Tracking**: Add features for tracking investments (stocks, crypto, etc.) and calculating returns.
 - **Bill Reminders**: Send reminders for recurring bills or upcoming payments.
 - **Dark Mode**: Implement a dark mode for better usability at night.
