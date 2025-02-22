@@ -7,6 +7,7 @@ import * as argon2 from "argon2";
 import { Prisma } from "@prisma/client";
 import { prisma } from '@/app/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
+import { pages } from "next/dist/build/templates/app-page";
 
 export const authOptions = {
     providers: [
@@ -61,6 +62,9 @@ export const authOptions = {
         }),
     ],
     adapter: PrismaAdapter(prisma),
+    pages: {
+        signIn: "/login",
+    },
     callbacks: {
         async signIn({ account, profile }: { account: any, profile?: any }) {
             if (account.provider === "google") {
