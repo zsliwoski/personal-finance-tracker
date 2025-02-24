@@ -2,8 +2,14 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import NavMenu from './components/NavMenu';
+import { getSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 export default async function Home() {
+  const session = await getSession();
+  if (session) {
+    redirect("/dashboard");
+  }
   return (
     <div>
       <NavMenu />

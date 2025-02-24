@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { userSchema } from "../lib/types"
+import { DescriptiveCheckbox } from "./DescriptiveCheckbox"
 
 
 export function SignUpDialog() {
@@ -44,22 +45,6 @@ export function SignUpDialog() {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                         <FormField
                             control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Name</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="ex. John" {...field} />
-                                    </FormControl>
-                                    <FormDescription>
-                                        This is your public display name.
-                                    </FormDescription>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
@@ -85,7 +70,10 @@ export function SignUpDialog() {
                             )}
                         />
                         <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border margin-top:20" />
-                        <Button type="submit">Submit</Button>
+                        <div className="relative space-y-4">
+                            <DescriptiveCheckbox id="terms" label="Accept terms and conditions" description="You agree to our Terms of Service and Privacy Policy." />
+                            <Button type="submit">Submit</Button>
+                        </div>
                     </form>
                 </Form>
 
