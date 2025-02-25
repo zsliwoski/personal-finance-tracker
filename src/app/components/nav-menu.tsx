@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
-import { ContactDialog } from "./ContactDialog";
-import { AuthButton } from "./AuthButton";
+import { ContactDialog } from "./contact-dialog";
+import { AuthButton } from "./auth-button";
 
 export default function NavMenu() {
     return (

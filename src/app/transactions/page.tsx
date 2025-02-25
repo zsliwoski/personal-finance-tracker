@@ -1,5 +1,5 @@
-import NavMenu from "../components/NavMenu";
-import TransactionForm from "../components/TransactionForm";
+import NavMenu from "../components/nav-menu";
+import TransactionForm from "../components/transaction-form";
 import { prisma } from "../lib/db";
 
 export default async function TransactionsPage() {

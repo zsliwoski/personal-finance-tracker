@@ -14,7 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { userSchema } from "../lib/types"
-import { DescriptiveCheckbox } from "./DescriptiveCheckbox"
+import { DescriptiveCheckbox } from "./descriptive-checkbox"
 
 
 export function SignUpDialog() {

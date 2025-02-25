@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-import SessionProvider from "./components/SessionProvider";
+import SessionProvider from "./components/session-provider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
@@ -36,8 +35,8 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <main>
             {children}
+            <Toaster />
           </main>
-          <Toaster />
         </SessionProvider>
       </body>
     </html>
